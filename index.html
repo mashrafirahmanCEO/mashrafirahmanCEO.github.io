@@ -1,68 +1,55 @@
-<!--
-  MASHRAFI RAHMAN — PERSONAL PORTFOLIO
-  AI ENGINEER | CYBERSECURITY PROFESSIONAL | ENTREPRENEUR
-
-  GitHub Pages:
-  https://mashrafirahmanCEO.github.io/
-
-  File:
-  index.html
--->
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Mashrafi Rahman | AI Engineer · Cybersecurity · Entrepreneur</title>
 
-<meta
- name="description"
- content="Official portfolio of Mashrafi Rahman — AI Engineer, Cybersecurity Professional and Entrepreneur."
-/>
-
-<meta
- name="keywords"
- content="Mashrafi Rahman, AI Engineer, Cybersecurity, Machine Learning, Artificial Intelligence, Entrepreneur, Web Success Partners LLC"
-/>
-
-  <meta name="author" content="Mashrafi Rahman" />
-
-  <meta property="og:title" content="Mashrafi Rahman | AI Engineer · Cybersecurity · Entrepreneur" />
-  <meta
-    property="og:description"
-    content="Professional portfolio of Mashrafi Rahman."
-  />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="Official portfolio of Mashrafi Rahman — AI Engineer, Cybersecurity Professional, and Entrepreneur. Explore AI engineering, cybersecurity, digital technology, and entrepreneurship projects.">
+  <meta name="author" content="Mashrafi Rahman">
+  <meta name="theme-color" content="#05070a">
 
   <style>
     :root {
-      --bg: #05070b;
-      --bg-soft: #0a0e15;
-      --card: rgba(15, 20, 30, 0.78);
-      --card-hover: rgba(21, 28, 41, 0.95);
-      --text: #f5f7fb;
-      --muted: #9ba6b7;
-      --line: rgba(255,255,255,0.09);
+      --bg: #05070a;
+      --bg-soft: #080d12;
+      --panel: rgba(10, 17, 23, 0.82);
+      --panel-2: rgba(13, 22, 29, 0.9);
+      --line: rgba(0, 255, 170, 0.14);
+      --line-strong: rgba(0, 255, 170, 0.3);
 
-      --accent: #7c5cff;
-      --accent-2: #00d4ff;
-      --green: #27e59b;
+      --green: #00f5a0;
+      --green-2: #00c98b;
+      --cyan: #00d9ff;
+      --white: #f3f8f6;
+      --muted: #91a29f;
+      --muted-2: #60716e;
 
-      --radius: 22px;
       --max: 1180px;
+      --radius: 22px;
+      --shadow:
+        0 0 0 1px rgba(255,255,255,0.025),
+        0 20px 60px rgba(0,0,0,0.35);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0,245,160,.08), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(0,217,255,.06), transparent 25%),
+        var(--bg);
+      color: var(--white);
       font-family:
         Inter,
         ui-sans-serif,
@@ -71,15 +58,21 @@
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
-
-      background:
-        radial-gradient(circle at 15% 10%, rgba(124,92,255,.14), transparent 28%),
-        radial-gradient(circle at 85% 15%, rgba(0,212,255,.10), transparent 25%),
-        var(--bg);
-
-      color: var(--text);
-      line-height: 1.65;
+      line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: .035;
+      background-image:
+        linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+      background-size: 50px 50px;
     }
 
     a {
@@ -87,758 +80,981 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    button {
+      font: inherit;
     }
 
     .container {
-      width: min(92%, var(--max));
-      margin: auto;
+      width: min(calc(100% - 32px), var(--max));
+      margin-inline: auto;
     }
 
     /* =========================
        NAVIGATION
-    ========================== */
+    ========================= */
 
-    nav {
-      position: fixed;
+    .nav-wrap {
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-
-      background: rgba(5,7,11,.72);
+      z-index: 100;
+      padding: 14px 0;
+      background: rgba(5, 7, 10, .72);
       backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(255,255,255,.05);
     }
 
-    .nav-inner {
-      min-height: 74px;
+    .nav {
+      min-height: 58px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: -.4px;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 11px;
+      color: var(--green);
+      background: rgba(0,245,160,.045);
+      box-shadow: 0 0 25px rgba(0,245,160,.08);
+      font-family: monospace;
+      font-size: 16px;
     }
 
     .brand span {
-      color: var(--accent-2);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
     }
 
     .nav-links {
       display: flex;
-      gap: 26px;
       align-items: center;
+      gap: 5px;
     }
 
     .nav-links a {
+      padding: 9px 12px;
       color: var(--muted);
-      font-size: .92rem;
-      transition: .25s;
+      font-size: 13px;
+      border-radius: 9px;
+      transition: .25s ease;
     }
 
     .nav-links a:hover {
-      color: white;
+      color: var(--green);
+      background: rgba(0,245,160,.06);
     }
 
-    .nav-button {
-      padding: 10px 16px;
-      border: 1px solid rgba(124,92,255,.45);
-      border-radius: 999px;
-      background: rgba(124,92,255,.10);
-      color: white !important;
+    .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      background: rgba(0,245,160,.05);
+      transition: .25s ease;
     }
 
-    .menu-btn {
-      display: none;
-      background: transparent;
-      border: 0;
-      color: white;
-      font-size: 1.7rem;
-      cursor: pointer;
+    .nav-cta:hover {
+      background: var(--green);
+      color: #00130c;
+      box-shadow: 0 0 28px rgba(0,245,160,.25);
     }
 
     /* =========================
        HERO
-    ========================== */
+    ========================= */
 
     .hero {
-      min-height: 100vh;
+      position: relative;
+      min-height: 780px;
       display: flex;
       align-items: center;
-      padding: 130px 0 80px;
-      position: relative;
+      padding: 90px 0 80px;
     }
 
     .hero-grid {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-grid::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle,
+          rgba(0,245,160,.09) 0,
+          rgba(0,245,160,.035) 28%,
+          transparent 67%);
+      filter: blur(10px);
+    }
+
+    .hero-grid::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .25;
+      background:
+        linear-gradient(rgba(0,245,160,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,160,.045) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 70px;
+      grid-template-columns: 1.15fr .85fr;
       align-items: center;
+      gap: 70px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 9px;
-
-      padding: 8px 13px;
+      padding: 7px 11px;
       border: 1px solid var(--line);
       border-radius: 999px;
-
-      background: rgba(255,255,255,.035);
-      color: #cbd3df;
-      font-size: .82rem;
-      margin-bottom: 25px;
+      background: rgba(0,245,160,.035);
+      color: var(--green);
+      font-family: monospace;
+      font-size: 11px;
+      margin-bottom: 22px;
     }
 
     .status-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--green);
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      box-shadow: 0 0 15px rgba(39,229,155,.7);
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse 2s infinite;
     }
 
-    h1 {
-      font-size: clamp(3rem, 7vw, 6.5rem);
+    @keyframes pulse {
+      50% {
+        opacity: .35;
+        transform: scale(.7);
+      }
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(44px, 7vw, 82px);
       line-height: .98;
-      letter-spacing: -5px;
-      margin-bottom: 25px;
+      letter-spacing: -.065em;
+      margin-bottom: 24px;
     }
 
-    .gradient-text {
-      background:
-        linear-gradient(
-          100deg,
-          #ffffff,
-          #aebcff 40%,
-          #6be7ff 75%,
-          #ffffff
-        );
-
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .hero h1 .accent {
+      color: var(--green);
+      text-shadow: 0 0 35px rgba(0,245,160,.12);
     }
 
     .hero-description {
-      max-width: 690px;
-      font-size: 1.1rem;
+      max-width: 650px;
       color: var(--muted);
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.8;
       margin-bottom: 32px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
-      padding: 13px 20px;
-      border-radius: 12px;
-
-      font-weight: 700;
-      font-size: .92rem;
-
-      border: 1px solid var(--line);
-      transition: .25s;
+      min-height: 48px;
+      padding: 0 19px;
+      border-radius: 11px;
+      border: 1px solid var(--line-strong);
+      font-size: 13px;
+      font-weight: 750;
+      transition: .25s ease;
     }
 
     .btn-primary {
-      background: linear-gradient(
-        135deg,
-        var(--accent),
-        #5f8cff
-      );
-      border: none;
+      background: var(--green);
+      color: #00140d;
+      border-color: var(--green);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,245,160,.2);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.025);
+      color: var(--white);
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
+    .btn-secondary:hover {
+      color: var(--green);
+      background: rgba(0,245,160,.05);
     }
 
-    /* HERO CARD */
+    /* Terminal */
 
-    .hero-card {
+    .terminal {
       position: relative;
-      padding: 28px;
+      width: 100%;
+      max-width: 470px;
+      margin-left: auto;
       border: 1px solid var(--line);
-      border-radius: 28px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(124,92,255,.13),
-          rgba(0,212,255,.04)
-        ),
-        var(--card);
-
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(5,10,13,.88);
       box-shadow:
-        0 30px 100px rgba(0,0,0,.35);
+        0 30px 80px rgba(0,0,0,.5),
+        0 0 60px rgba(0,245,160,.045);
+    }
 
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      height: 43px;
+      padding: 0 15px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      background: rgba(255,255,255,.025);
+    }
+
+    .terminal-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--muted-2);
+    }
+
+    .terminal-title {
+      margin-left: 8px;
+      color: var(--muted-2);
+      font: 11px monospace;
+    }
+
+    .terminal-body {
+      padding: 25px;
+      font: 12px/2 monospace;
+      color: #a7bab5;
+    }
+
+    .terminal-body .green {
+      color: var(--green);
+    }
+
+    .terminal-body .cyan {
+      color: var(--cyan);
+    }
+
+    .terminal-body .dim {
+      color: #526360;
+    }
+
+    .terminal-line {
+      display: block;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+      margin-top: -25px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(8,13,17,.8);
+      backdrop-filter: blur(15px);
       overflow: hidden;
     }
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      background: var(--accent);
-      filter: blur(100px);
-      opacity: .15;
-      right: -100px;
-      top: -100px;
+    .stat {
+      padding: 28px 24px;
+      border-right: 1px solid var(--line);
     }
 
-    .profile-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 20px;
-
-      display: grid;
-      place-items: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--accent),
-          var(--accent-2)
-        );
-
-      font-size: 1.7rem;
-      font-weight: 900;
-      margin-bottom: 25px;
+    .stat:last-child {
+      border-right: 0;
     }
 
-    .hero-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 7px;
+    .stat strong {
+      display: block;
+      color: var(--green);
+      font-size: 27px;
+      letter-spacing: -.03em;
     }
 
-    .hero-card p {
+    .stat span {
       color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .role-list {
-      margin-top: 24px;
-      display: grid;
-      gap: 11px;
-    }
-
-    .role-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      padding: 11px 13px;
-      border-radius: 12px;
-
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.055);
-
-      color: #d8deea;
-      font-size: .88rem;
-    }
-
-    .role-item::before {
-      content: "✦";
-      color: var(--accent-2);
+      font-size: 12px;
     }
 
     /* =========================
-       SECTIONS
-    ========================== */
+       COMMON SECTIONS
+    ========================= */
 
     section {
-      padding: 100px 0;
+      padding: 105px 0;
     }
 
-    .section-header {
+    .section-heading {
       max-width: 720px;
-      margin-bottom: 45px;
+      margin-bottom: 48px;
     }
 
-    .section-label {
-      color: var(--accent-2);
-      font-size: .78rem;
-      font-weight: 800;
+    .section-kicker {
+      color: var(--green);
+      font: 11px monospace;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
+      letter-spacing: .15em;
+      margin-bottom: 13px;
     }
 
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      letter-spacing: -2px;
+    .section-heading h2 {
+      font-size: clamp(31px, 5vw, 49px);
       line-height: 1.05;
+      letter-spacing: -.045em;
       margin-bottom: 15px;
     }
 
-    .section-description {
+    .section-heading p {
       color: var(--muted);
-    }
-
-    /* =========================
-       ABOUT
-    ========================== */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .glass-card {
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--card);
-    }
-
-    .glass-card h3 {
-      margin-bottom: 15px;
-      font-size: 1.25rem;
-    }
-
-    .glass-card p {
-      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
     }
 
     /* =========================
        EXPERTISE
-    ========================== */
+    ========================= */
 
     .expertise-grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
     .expertise-card {
-      padding: 28px;
+      position: relative;
+      padding: 29px;
+      min-height: 250px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--card);
-      transition: .3s;
+      background: linear-gradient(
+        145deg,
+        rgba(14,24,30,.92),
+        rgba(7,12,16,.82)
+      );
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: .3s ease;
+    }
+
+    .expertise-card::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -70px;
+      bottom: -70px;
+      border-radius: 50%;
+      background: rgba(0,245,160,.07);
+      filter: blur(25px);
     }
 
     .expertise-card:hover {
-      transform: translateY(-7px);
-      background: var(--card-hover);
-      border-color: rgba(124,92,255,.35);
+      transform: translateY(-5px);
+      border-color: var(--line-strong);
     }
 
     .icon {
-      width: 48px;
-      height: 48px;
+      width: 43px;
+      height: 43px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
-
-      background: rgba(124,92,255,.12);
-      border: 1px solid rgba(124,92,255,.22);
-
-      margin-bottom: 20px;
-      font-size: 1.3rem;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      color: var(--green);
+      background: rgba(0,245,160,.05);
+      font-family: monospace;
+      font-weight: 800;
     }
 
     .expertise-card h3 {
+      font-size: 18px;
       margin-bottom: 9px;
     }
 
     .expertise-card p {
       color: var(--muted);
-      font-size: .9rem;
+      font-size: 13px;
+      line-height: 1.75;
     }
 
     /* =========================
        PROJECTS
-    ========================== */
+    ========================= */
 
     .projects {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 20px;
-    }
-
-    .project-card {
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-
       background:
         linear-gradient(
-          145deg,
-          rgba(255,255,255,.04),
-          rgba(255,255,255,.015)
+          to bottom,
+          transparent,
+          rgba(0,245,160,.018),
+          transparent
         );
-
-      transition: .3s;
     }
 
-    .project-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(0,212,255,.25);
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 20px;
+    .project {
+      position: relative;
+      padding: 30px;
+      min-height: 315px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      overflow: hidden;
+      transition: .3s ease;
+    }
+
+    .project:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-4px);
     }
 
     .project-number {
-      color: var(--accent-2);
-      font-size: .78rem;
-      font-weight: 800;
+      position: absolute;
+      right: 25px;
+      top: 20px;
+      color: rgba(0,245,160,.12);
+      font: 700 42px monospace;
     }
 
-    .project-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
+    .project-type {
+      color: var(--green);
+      font: 10px monospace;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 17px;
     }
 
-    .project-card p {
+    .project h3 {
+      max-width: 80%;
+      font-size: 23px;
+      line-height: 1.2;
+      margin-bottom: 13px;
+    }
+
+    .project p {
+      max-width: 600px;
       color: var(--muted);
-      font-size: .9rem;
+      font-size: 13px;
+      line-height: 1.75;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
-      margin-top: 22px;
+      margin-top: 23px;
     }
 
     .tag {
-      padding: 6px 10px;
-      border-radius: 999px;
-
-      background: rgba(255,255,255,.045);
-      border: 1px solid var(--line);
-
-      color: #bfc8d6;
-      font-size: .73rem;
+      padding: 6px 9px;
+      border-radius: 7px;
+      border: 1px solid rgba(0,245,160,.12);
+      background: rgba(0,245,160,.035);
+      color: #a8bbb6;
+      font: 10px monospace;
     }
 
     /* =========================
        EXPERIENCE
-    ========================== */
+    ========================= */
+
+    .experience-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 65px;
+      align-items: start;
+    }
+
+    .experience-intro {
+      position: sticky;
+      top: 105px;
+    }
+
+    .experience-intro h3 {
+      font-size: 28px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .experience-intro p {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
     .timeline {
       position: relative;
-      max-width: 900px;
+      padding-left: 27px;
     }
 
     .timeline::before {
       content: "";
       position: absolute;
-      left: 9px;
-      top: 10px;
-      bottom: 10px;
+      left: 4px;
+      top: 7px;
+      bottom: 7px;
       width: 1px;
-      background: var(--line);
+      background: linear-gradient(
+        to bottom,
+        var(--green),
+        rgba(0,245,160,.08)
+      );
     }
 
     .timeline-item {
       position: relative;
-      padding-left: 45px;
-      margin-bottom: 42px;
+      padding-bottom: 45px;
     }
 
-    .timeline-dot {
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
       position: absolute;
-      left: 3px;
+      width: 9px;
+      height: 9px;
+      left: -27px;
       top: 8px;
-
-      width: 13px;
-      height: 13px;
-
       border-radius: 50%;
-      background: var(--accent-2);
-      box-shadow: 0 0 20px rgba(0,212,255,.4);
+      background: var(--bg);
+      border: 2px solid var(--green);
+      box-shadow: 0 0 15px rgba(0,245,160,.45);
     }
 
     .timeline-date {
-      color: var(--accent-2);
-      font-size: .78rem;
-      font-weight: 700;
-      margin-bottom: 6px;
+      color: var(--green);
+      font: 10px monospace;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 8px;
     }
 
     .timeline-item h3 {
-      font-size: 1.25rem;
+      font-size: 21px;
+      margin-bottom: 4px;
     }
 
     .timeline-company {
-      color: #c4cbd7;
-      margin-bottom: 10px;
+      color: var(--cyan);
+      font-size: 12px;
+      margin-bottom: 12px;
     }
 
     .timeline-item p {
       color: var(--muted);
-      max-width: 760px;
-    }
-
-    /* =========================
-       CERTIFICATIONS
-    ========================== */
-
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 18px;
-    }
-
-    .cert-card {
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: var(--card);
-    }
-
-    .cert-card small {
-      color: var(--accent-2);
-      font-weight: 700;
-    }
-
-    .cert-card h3 {
-      margin: 9px 0;
-      font-size: 1.05rem;
-    }
-
-    .cert-card p {
-      color: var(--muted);
-      font-size: .85rem;
+      font-size: 13px;
+      line-height: 1.8;
     }
 
     /* =========================
        SKILLS
-    ========================== */
+    ========================= */
 
-    .skills {
+    .skills-wrap {
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .skill-category {
+      margin-bottom: 30px;
+    }
+
+    .skill-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-category h3 {
+      font-size: 14px;
+      margin-bottom: 13px;
+    }
+
+    .skill-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     .skill {
-      padding: 10px 14px;
-      border-radius: 999px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 8px;
+      background: rgba(255,255,255,.025);
+      color: #a9b9b6;
+      font-size: 11px;
+      transition: .2s ease;
+    }
 
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.035);
-
-      color: #d5dce7;
-      font-size: .83rem;
+    .skill:hover {
+      color: var(--green);
+      border-color: var(--line-strong);
     }
 
     /* =========================
-       ENTREPRENEURSHIP
-    ========================== */
+       CERTIFICATIONS
+    ========================= */
 
-    .entrepreneur-card {
-      padding: 45px;
-      border-radius: 30px;
-      border: 1px solid rgba(124,92,255,.25);
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
 
+    .cert {
+      display: flex;
+      align-items: flex-start;
+      gap: 17px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255,255,255,.018);
+    }
+
+    .cert-icon {
+      flex: 0 0 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-family: monospace;
+    }
+
+    .cert h3 {
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .cert p {
+      color: var(--muted-2);
+      font-size: 11px;
+    }
+
+    /* =========================
+       ABOUT / CTA
+    ========================= */
+
+    .about-box {
+      position: relative;
+      padding: 60px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
       background:
         radial-gradient(
-          circle at 80% 10%,
-          rgba(124,92,255,.16),
+          circle at 85% 20%,
+          rgba(0,245,160,.08),
           transparent 30%
         ),
-        rgba(15,20,30,.8);
+        linear-gradient(
+          135deg,
+          rgba(13,24,30,.95),
+          rgba(6,11,15,.9)
+        );
+      overflow: hidden;
     }
 
-    .entrepreneur-card h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      margin-bottom: 15px;
+    .about-box h2 {
+      max-width: 720px;
+      font-size: clamp(31px, 5vw, 53px);
+      line-height: 1.04;
+      letter-spacing: -.05em;
+      margin-bottom: 18px;
     }
 
-    .entrepreneur-card p {
+    .about-box p {
+      max-width: 700px;
       color: var(--muted);
-      max-width: 800px;
+      font-size: 14px;
+      line-height: 1.85;
+      margin-bottom: 27px;
     }
 
     /* =========================
        CONTACT
-    ========================== */
+    ========================= */
 
-    .contact-box {
-      text-align: center;
-      padding: 70px 30px;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
 
-      border-radius: 30px;
+    .contact-card {
+      padding: 30px;
       border: 1px solid var(--line);
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(124,92,255,.10),
-          rgba(0,212,255,.05)
-        );
+      border-radius: var(--radius);
+      background: var(--panel);
     }
 
-    .contact-box h2 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      letter-spacing: -2px;
-      margin-bottom: 15px;
+    .contact-card small {
+      color: var(--green);
+      font: 10px monospace;
+      text-transform: uppercase;
+      letter-spacing: .12em;
     }
 
-    .contact-box p {
+    .contact-card h3 {
+      margin: 10px 0 7px;
+      font-size: 19px;
+    }
+
+    .contact-card p {
       color: var(--muted);
-      max-width: 620px;
-      margin: auto auto 25px;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .social-link {
-      padding: 10px 15px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      color: #cdd5e1;
-      font-size: .85rem;
-      transition: .25s;
-    }
-
-    .social-link:hover {
-      background: rgba(255,255,255,.06);
-      color: white;
+      font-size: 13px;
     }
 
     /* =========================
        FOOTER
-    ========================== */
+    ========================= */
 
     footer {
-      padding: 35px 0;
-      border-top: 1px solid var(--line);
-      color: #778294;
-      font-size: .8rem;
+      padding: 45px 0;
+      border-top: 1px solid rgba(255,255,255,.05);
     }
 
     .footer-inner {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 20px;
-      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .footer-brand span {
+      color: var(--green);
+    }
+
+    .footer-copy {
+      color: var(--muted-2);
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links a:hover {
+      color: var(--green);
     }
 
     /* =========================
-       REVEAL ANIMATION
-    ========================== */
+       RESPONSIVE
+    ========================= */
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity .8s ease, transform .8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================
-       MOBILE
-    ========================== */
-
-    @media (max-width: 850px) {
-
+    @media (max-width: 950px) {
       .nav-links {
-        position: absolute;
-        top: 74px;
-        left: 0;
-        width: 100%;
-
-        padding: 20px;
-
         display: none;
-        flex-direction: column;
-        align-items: flex-start;
-
-        background: rgba(5,7,11,.97);
-        border-bottom: 1px solid var(--line);
       }
 
-      .nav-links.active {
-        display: flex;
+      .hero {
+        min-height: auto;
+        padding: 75px 0 70px;
       }
 
-      .menu-btn {
-        display: block;
-      }
-
-      .hero-grid,
-      .about-grid,
-      .projects,
-      .cert-grid {
+      .hero-content {
         grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .terminal {
+        margin: 0;
+        max-width: 650px;
       }
 
       .expertise-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      h1 {
-        letter-spacing: -3px;
+      .experience-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .experience-intro {
+        position: static;
       }
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 700px) {
+      .container {
+        width: min(calc(100% - 22px), var(--max));
+      }
+
+      .nav-wrap {
+        padding: 10px 0;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .nav-cta {
+        padding: 8px 11px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding: 60px 0 55px;
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 13vw, 65px);
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .stats {
+        margin-top: 0;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat {
+        padding: 20px 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stat:nth-child(3),
+      .stat:nth-child(4) {
+        border-bottom: 0;
+      }
 
       section {
         padding: 75px 0;
       }
 
-      .expertise-grid {
+      .section-heading {
+        margin-bottom: 32px;
+      }
+
+      .expertise-grid,
+      .projects-grid,
+      .cert-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding-top: 120px;
+      .expertise-card {
+        min-height: auto;
       }
 
-      .hero-card,
-      .glass-card,
-      .project-card,
-      .entrepreneur-card {
-        padding: 22px;
+      .project {
+        min-height: auto;
       }
 
-      .contact-box {
-        padding: 50px 20px;
+      .about-box {
+        padding: 32px 24px;
+        border-radius: 20px;
+      }
+
+      .skills-wrap {
+        padding: 23px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
       }
     }
   </style>
-
 </head>
 
 <body>
@@ -847,883 +1063,859 @@
        NAVIGATION
   ========================== -->
 
-  <nav>
-    <div class="container nav-inner">
+  <header class="nav-wrap">
+    <div class="container nav">
 
-```
-  <a href="#home" class="brand">
-    Mashrafi<span>.</span>
-  </a>
-
-  <button class="menu-btn" id="menuBtn">
-    ☰
-  </button>
-
-  <div class="nav-links" id="navLinks">
-    <a href="#about">About</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact" class="nav-button">Contact</a>
-  </div>
-
-</div>
-```
-
-  </nav>
-
-  <!-- =========================
-       HERO
-  ========================== -->
-
-  <main>
-
-```
-<section class="hero" id="home">
-
-  <div class="container hero-grid">
-
-    <div class="reveal">
-
-      <div class="eyebrow">
-        <span class="status-dot"></span>
-        AI · Cybersecurity · Digital Technology
-      </div>
-
-      <h1>
-        <span class="gradient-text">
+      <a href="#top" class="brand">
+        <div class="brand-mark">&lt;/&gt;</div>
+        <div>
           Mashrafi Rahman
-        </span>
-      </h1>
+          <span>Digital Technology Professional</span>
+        </div>
+      </a>
 
-      <p class="hero-description">
-        AI Engineer, Cybersecurity Professional and Entrepreneur
-        focused on building practical technology solutions,
-        intelligent systems, secure digital infrastructure and
-        technology-driven business initiatives.
-      </p>
+      <nav class="nav-links">
+        <a href="#expertise">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-      <div class="hero-actions">
+      <a href="#contact" class="nav-cta">Let's Connect →</a>
 
-        <a href="#projects" class="btn btn-primary">
-          Explore My Work
-        </a>
+    </div>
+  </header>
 
-        <a href="#contact" class="btn btn-secondary">
-          Connect With Me
-        </a>
+
+  <main id="top">
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="hero-grid"></div>
+
+      <div class="container hero-content">
+
+        <div>
+
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            AVAILABLE FOR TECHNOLOGY PROJECTS
+          </div>
+
+          <h1>
+            Building at the
+            <span class="accent">intersection</span>
+            of AI & Security.
+          </h1>
+
+          <p class="hero-description">
+            I'm Mashrafi Rahman — an AI Engineer, Cybersecurity Professional,
+            and Entrepreneur focused on building practical technology,
+            intelligent systems, secure digital solutions, and
+            technology-driven businesses.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">
+              Explore My Work
+            </a>
+
+            <a class="btn btn-secondary" href="#experience">
+              View Experience
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="terminal">
+
+          <div class="terminal-bar">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-title">
+              mashrafi@portfolio:~$
+            </span>
+          </div>
+
+          <div class="terminal-body">
+
+            <span class="terminal-line">
+              <span class="green">$</span>
+              whoami
+            </span>
+
+            <span class="terminal-line dim">
+              &gt; Mashrafi Rahman
+            </span>
+
+            <br>
+
+            <span class="terminal-line">
+              <span class="green">$</span>
+              focus --areas
+            </span>
+
+            <span class="terminal-line">
+              <span class="cyan">AI Engineering</span>
+            </span>
+
+            <span class="terminal-line">
+              <span class="cyan">Cybersecurity</span>
+            </span>
+
+            <span class="terminal-line">
+              <span class="cyan">Digital Technology</span>
+            </span>
+
+            <span class="terminal-line">
+              <span class="cyan">Entrepreneurship</span>
+            </span>
+
+            <br>
+
+            <span class="terminal-line">
+              <span class="green">$</span>
+              system.status
+            </span>
+
+            <span class="terminal-line">
+              <span class="green">● ONLINE</span>
+              — building & learning
+            </span>
+
+            <br>
+
+            <span class="terminal-line">
+              <span class="green">$</span>
+              echo $MISSION
+            </span>
+
+            <span class="terminal-line dim">
+              Build useful technology.
+            </span>
+
+            <span class="terminal-line dim">
+              Design with security.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         STATS
+    ========================== -->
+
+    <div class="container stats">
+
+      <div class="stats-grid">
+
+        <div class="stat">
+          <strong>AI</strong>
+          <span>Engineering & Intelligent Systems</span>
+        </div>
+
+        <div class="stat">
+          <strong>SEC</strong>
+          <span>Cybersecurity & Security Architecture</span>
+        </div>
+
+        <div class="stat">
+          <strong>TECH</strong>
+          <span>Digital Technology Solutions</span>
+        </div>
+
+        <div class="stat">
+          <strong>CEO</strong>
+          <span>Entrepreneurship & Business Development</span>
+        </div>
 
       </div>
 
     </div>
 
 
-    <div class="hero-card reveal">
+    <!-- =========================
+         EXPERTISE
+    ========================== -->
 
-      <div class="profile-icon">
-        MR
-      </div>
+    <section id="expertise">
 
-      <h3>
-        AI Engineer · Cybersecurity · Entrepreneur
-      </h3>
+      <div class="container">
 
-      <p>
-        Technology-focused professional portfolio.
-      </p>
+        <div class="section-heading">
+          <div class="section-kicker">// Core Expertise</div>
 
-      <div class="role-list">
+          <h2>
+            Technology with a
+            security-first mindset.
+          </h2>
 
-        <div class="role-item">
-          Artificial Intelligence & Machine Learning
+          <p>
+            My work combines artificial intelligence, cybersecurity,
+            software-oriented problem solving, and entrepreneurship to
+            transform ideas into practical technology solutions.
+          </p>
         </div>
 
-        <div class="role-item">
-          Cybersecurity & Security Architecture
+
+        <div class="expertise-grid">
+
+          <article class="expertise-card">
+            <div class="icon">AI</div>
+
+            <h3>AI Engineering</h3>
+
+            <p>
+              Building practical AI applications, LLM-powered systems,
+              automation workflows, intelligent assistants, data-driven
+              solutions, and production-oriented AI concepts.
+            </p>
+          </article>
+
+
+          <article class="expertise-card">
+            <div class="icon">SEC</div>
+
+            <h3>Cybersecurity</h3>
+
+            <p>
+              Security-focused problem solving across network security,
+              threat awareness, secure architecture, system protection,
+              security operations concepts, and defensive technology.
+            </p>
+          </article>
+
+
+          <article class="expertise-card">
+            <div class="icon">&lt;/&gt;</div>
+
+            <h3>Digital Technology</h3>
+
+            <p>
+              Designing technology solutions that connect software,
+              infrastructure, automation, networking, cloud-oriented
+              services, and real-world operational requirements.
+            </p>
+          </article>
+
+
+          <article class="expertise-card">
+            <div class="icon">BUS</div>
+
+            <h3>Entrepreneurship</h3>
+
+            <p>
+              Founder-oriented experience in business development,
+              technology services, digital strategy, product thinking,
+              client solutions, and technology-led ventures.
+            </p>
+          </article>
+
+
+          <article class="expertise-card">
+            <div class="icon">SYS</div>
+
+            <h3>Security Architecture</h3>
+
+            <p>
+              Translating security requirements into structured systems,
+              access controls, monitoring concepts, secure networking,
+              and practical defensive architectures.
+            </p>
+          </article>
+
+
+          <article class="expertise-card">
+            <div class="icon">R&amp;D</div>
+
+            <h3>Technology Research</h3>
+
+            <p>
+              Exploring emerging AI, cybersecurity, networking, automation,
+              and digital technologies with an emphasis on practical
+              implementation and continuous learning.
+            </p>
+          </article>
+
         </div>
 
-        <div class="role-item">
-          Automation & Intelligent Systems
+      </div>
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects" class="projects">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-kicker">// Selected Work</div>
+
+          <h2>
+            Projects built around
+            real-world problems.
+          </h2>
+
+          <p>
+            A selection of technology concepts and solution-oriented
+            projects spanning AI, cybersecurity, networking, automation,
+            and digital technology.
+          </p>
         </div>
 
-        <div class="role-item">
-          Entrepreneurship & Digital Technology
+
+        <div class="projects-grid">
+
+          <article class="project">
+
+            <div class="project-number">01</div>
+
+            <div class="project-type">
+              AI ENGINEERING
+            </div>
+
+            <h3>
+              AI-Powered Intelligent Systems
+            </h3>
+
+            <p>
+              Exploring LLM applications, intelligent automation,
+              AI-assisted workflows, retrieval-based systems, and
+              practical AI engineering architectures.
+            </p>
+
+            <div class="tags">
+              <span class="tag">LLM</span>
+              <span class="tag">RAG</span>
+              <span class="tag">AI Agents</span>
+              <span class="tag">Automation</span>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-number">02</div>
+
+            <div class="project-type">
+              CYBERSECURITY
+            </div>
+
+            <h3>
+              Security Architecture & Solutions
+            </h3>
+
+            <p>
+              Security-focused system concepts involving network
+              protection, monitoring, access control, threat awareness,
+              and defensive technology architectures.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Network Security</span>
+              <span class="tag">Threat Detection</span>
+              <span class="tag">Security Architecture</span>
+              <span class="tag">Linux</span>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-number">03</div>
+
+            <div class="project-type">
+              MARITIME TECHNOLOGY
+            </div>
+
+            <h3>
+              Smart Fishing Boat Safety & Communication
+            </h3>
+
+            <p>
+              A technology concept combining satellite connectivity,
+              GPS/GNSS, onboard networking, emergency communication,
+              monitoring, and intelligent safety features for fishing
+              vessels.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Satellite</span>
+              <span class="tag">IoT</span>
+              <span class="tag">GPS/GNSS</span>
+              <span class="tag">MikroTik</span>
+              <span class="tag">Automation</span>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-number">04</div>
+
+            <div class="project-type">
+              ENTREPRENEURSHIP
+            </div>
+
+            <h3>
+              Web Success Partners LLC
+            </h3>
+
+            <p>
+              Technology-oriented entrepreneurship involving digital
+              services, business development, technology integration,
+              strategic planning, and emerging technology exploration.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Business Strategy</span>
+              <span class="tag">Digital Technology</span>
+              <span class="tag">Innovation</span>
+              <span class="tag">Leadership</span>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+
+    <section id="experience">
+
+      <div class="container">
+
+        <div class="experience-layout">
+
+          <div class="experience-intro">
+
+            <div class="section-kicker">// Experience</div>
+
+            <h3>
+              A multidisciplinary technology journey.
+            </h3>
+
+            <p>
+              My professional profile combines engineering,
+              cybersecurity, entrepreneurship, and digital technology
+              into one continuously evolving career path.
+            </p>
+
+          </div>
+
+
+          <div class="timeline">
+
+            <article class="timeline-item">
+
+              <div class="timeline-date">
+                2026 — Present
+              </div>
+
+              <h3>
+                Cybersecurity Professional
+              </h3>
+
+              <div class="timeline-company">
+                Independent / Professional Development
+              </div>
+
+              <p>
+                Developing practical cybersecurity knowledge across
+                network security, Linux, security operations,
+                vulnerability awareness, defensive architecture,
+                and security-focused technology solutions.
+              </p>
+
+            </article>
+
+
+            <article class="timeline-item">
+
+              <div class="timeline-date">
+                2023 — Present
+              </div>
+
+              <h3>
+                AI Engineer
+              </h3>
+
+              <div class="timeline-company">
+                Independent / Remote
+              </div>
+
+              <p>
+                Working on AI-driven applications, automation,
+                machine-learning concepts, LLM-based systems,
+                data-oriented solutions, and practical AI engineering
+                projects.
+              </p>
+
+            </article>
+
+
+            <article class="timeline-item">
+
+              <div class="timeline-date">
+                2022 — Present
+              </div>
+
+              <h3>
+                Founder & CEO
+              </h3>
+
+              <div class="timeline-company">
+                Web Success Partners LLC
+              </div>
+
+              <p>
+                Leading technology and digital business initiatives
+                involving business development, digital strategy,
+                technology services, innovation, client-focused
+                solutions, and emerging technology integration.
+              </p>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-kicker">// Technical Stack</div>
+
+          <h2>
+            Skills & Technology
+          </h2>
+
+          <p>
+            A growing multidisciplinary skill set covering AI,
+            cybersecurity, networking, digital systems, and business.
+          </p>
+        </div>
+
+
+        <div class="skills-wrap">
+
+          <div class="skill-category">
+
+            <h3>Artificial Intelligence</h3>
+
+            <div class="skill-list">
+              <span class="skill">Artificial Intelligence</span>
+              <span class="skill">Machine Learning</span>
+              <span class="skill">LLM Applications</span>
+              <span class="skill">RAG</span>
+              <span class="skill">AI Agents</span>
+              <span class="skill">Prompt Engineering</span>
+              <span class="skill">AI Automation</span>
+              <span class="skill">Data Analysis</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-category">
+
+            <h3>Cybersecurity</h3>
+
+            <div class="skill-list">
+              <span class="skill">Network Security</span>
+              <span class="skill">Security Architecture</span>
+              <span class="skill">Threat Awareness</span>
+              <span class="skill">Vulnerability Concepts</span>
+              <span class="skill">Linux Security</span>
+              <span class="skill">Security Operations</span>
+              <span class="skill">Cyber Risk</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-category">
+
+            <h3>Technology & Infrastructure</h3>
+
+            <div class="skill-list">
+              <span class="skill">Networking</span>
+              <span class="skill">MikroTik</span>
+              <span class="skill">Satellite Connectivity</span>
+              <span class="skill">IoT Concepts</span>
+              <span class="skill">GPS/GNSS</span>
+              <span class="skill">Automation</span>
+              <span class="skill">System Design</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-category">
+
+            <h3>Business & Leadership</h3>
+
+            <div class="skill-list">
+              <span class="skill">Entrepreneurship</span>
+              <span class="skill">Business Development</span>
+              <span class="skill">Business Strategy</span>
+              <span class="skill">Digital Marketing</span>
+              <span class="skill">Technology Consulting</span>
+              <span class="skill">Product Thinking</span>
+              <span class="skill">Leadership</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATIONS
+    ========================== -->
+
+    <section id="certifications">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-kicker">// Professional Development</div>
+
+          <h2>
+            Certifications & Learning
+          </h2>
+
+          <p>
+            Selected professional learning across artificial
+            intelligence, cybersecurity, networking, and modern
+            technology.
+          </p>
+        </div>
+
+
+        <div class="cert-grid">
+
+          <article class="cert">
+            <div class="cert-icon">AI</div>
+
+            <div>
+              <h3>
+                The AI Engineer Course
+              </h3>
+              <p>
+                AI Engineering · Udemy
+              </p>
+            </div>
+          </article>
+
+
+          <article class="cert">
+            <div class="cert-icon">LLM</div>
+
+            <div>
+              <h3>
+                LLM Zoomcamp
+              </h3>
+              <p>
+                LLM Applications & Production-Oriented AI
+              </p>
+            </div>
+          </article>
+
+
+          <article class="cert">
+            <div class="cert-icon">CS</div>
+
+            <div>
+              <h3>
+                Introduction to Cybersecurity
+              </h3>
+              <p>
+                Cisco Networking Academy
+              </p>
+            </div>
+          </article>
+
+
+          <article class="cert">
+            <div class="cert-icon">G</div>
+
+            <div>
+              <h3>
+                Google Cybersecurity Professional Certificate
+              </h3>
+              <p>
+                Cybersecurity · Google
+              </p>
+            </div>
+          </article>
+
+
+          <article class="cert">
+            <div class="cert-icon">+</div>
+
+            <div>
+              <h3>
+                CompTIA Security+ SY0-701
+              </h3>
+              <p>
+                Cybersecurity Certification Preparation
+              </p>
+            </div>
+          </article>
+
+
+          <article class="cert">
+            <div class="cert-icon">CC</div>
+
+            <div>
+              <h3>
+                Cisco CCNA Cybersecurity
+              </h3>
+              <p>
+                Networking & Cybersecurity Development
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         ABOUT / MISSION
+    ========================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="about-box">
+
+          <div class="section-kicker">// Mission</div>
+
+          <h2>
+            Building technology that is
+            useful, intelligent, and secure.
+          </h2>
+
+          <p>
+            I believe modern technology should not only be innovative —
+            it should solve meaningful problems. My goal is to combine
+            AI engineering, cybersecurity, digital infrastructure, and
+            entrepreneurship to create practical systems that can work
+            in the real world.
+          </p>
+
+          <a href="#contact" class="btn btn-primary">
+            Start a Conversation →
+          </a>
+
         </div>
 
       </div>
 
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     ABOUT
-========================== -->
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
-<section id="about">
+    <section id="contact">
 
-  <div class="container">
+      <div class="container">
 
-    <div class="section-header reveal">
+        <div class="section-heading">
+          <div class="section-kicker">// Contact</div>
 
-      <div class="section-label">
-        About
-      </div>
+          <h2>
+            Let's build something meaningful.
+          </h2>
 
-      <h2 class="section-title">
-        Building with technology,
-        security and intelligence.
-      </h2>
-
-      <p class="section-description">
-        My professional focus combines AI engineering,
-        cybersecurity and entrepreneurship to explore
-        practical solutions for real-world problems.
-      </p>
-
-    </div>
-
-
-    <div class="about-grid">
-
-      <div class="glass-card reveal">
-
-        <h3>
-          Professional Focus
-        </h3>
-
-        <p>
-          My work focuses on understanding emerging technologies
-          and transforming them into practical systems,
-          applications and technology-driven solutions.
-          Areas of interest include AI engineering,
-          machine learning, intelligent automation,
-          cybersecurity and secure digital infrastructure.
-        </p>
-
-      </div>
-
-
-      <div class="glass-card reveal">
-
-        <h3>
-          Technology Philosophy
-        </h3>
-
-        <p>
-          I believe technology becomes valuable when it can
-          solve a meaningful problem. My approach combines
-          experimentation, engineering, security awareness
-          and continuous learning to develop practical
-          and scalable ideas.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     EXPERTISE
-========================== -->
-
-<section id="expertise">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Expertise
-      </div>
-
-      <h2 class="section-title">
-        Core technology areas
-      </h2>
-
-      <p class="section-description">
-        Selected areas representing my technical and
-        professional interests.
-      </p>
-
-    </div>
-
-
-    <div class="expertise-grid">
-
-      <div class="expertise-card reveal">
-
-        <div class="icon">
-          AI
+          <p>
+            Open to technology projects, collaboration, AI engineering,
+            cybersecurity initiatives, and entrepreneurial opportunities.
+          </p>
         </div>
 
-        <h3>
-          AI Engineering
-        </h3>
 
-        <p>
-          Machine learning, AI applications, LLM-based
-          systems, intelligent automation and practical
-          AI solution development.
-        </p>
+        <div class="contact-grid">
 
-      </div>
+          <a
+            class="contact-card"
+            href="https://www.linkedin.com/in/mashrafi"
+            target="_blank"
+            rel="noopener"
+          >
+            <small>Professional Network</small>
+            <h3>LinkedIn →</h3>
+            <p>
+              Connect with me professionally and explore my experience.
+            </p>
+          </a>
 
 
-      <div class="expertise-card reveal">
+          <a
+            class="contact-card"
+            href="https://github.com/mashrafirahmanCEO"
+            target="_blank"
+            rel="noopener"
+          >
+            <small>Code & Projects</small>
+            <h3>GitHub →</h3>
+            <p>
+              Explore my technical projects, experiments, and development work.
+            </p>
+          </a>
 
-        <div class="icon">
-          ◈
         </div>
 
-        <h3>
-          Cybersecurity
-        </h3>
-
-        <p>
-          Security fundamentals, network security,
-          vulnerability awareness, secure architecture
-          and cybersecurity-focused solutions.
-        </p>
-
       </div>
 
-
-      <div class="expertise-card reveal">
-
-        <div class="icon">
-          ⚙
-        </div>
-
-        <h3>
-          Digital Technology
-        </h3>
-
-        <p>
-          Technology integration, automation, digital
-          infrastructure and technology-enabled business
-          solutions.
-        </p>
-
-      </div>
-
-
-      <div class="expertise-card reveal">
-
-        <div class="icon">
-          ML
-        </div>
-
-        <h3>
-          Machine Learning
-        </h3>
-
-        <p>
-          Data-driven modelling, predictive systems,
-          experimentation and applied machine learning.
-        </p>
-
-      </div>
-
-
-      <div class="expertise-card reveal">
-
-        <div class="icon">
-          🛡
-        </div>
-
-        <h3>
-          Security Architecture
-        </h3>
-
-        <p>
-          Security-oriented system thinking, network
-          protection concepts and secure technology
-          implementation.
-        </p>
-
-      </div>
-
-
-      <div class="expertise-card reveal">
-
-        <div class="icon">
-          🚀
-        </div>
-
-        <h3>
-          Entrepreneurship
-        </h3>
-
-        <p>
-          Digital business development, technology
-          strategy, innovation and technology-driven
-          entrepreneurship.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     PROJECTS
-========================== -->
-
-<section id="projects">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Selected Work
-      </div>
-
-      <h2 class="section-title">
-        Projects & case studies
-      </h2>
-
-      <p class="section-description">
-        A selection of technology concepts and project areas
-        developed or explored through my engineering journey.
-      </p>
-
-    </div>
-
-
-    <div class="projects">
-
-
-      <article class="project-card reveal">
-
-        <div class="project-top">
-          <span class="project-number">
-            01 / AI
-          </span>
-        </div>
-
-        <h3>
-          AI Engineering & Intelligent Systems
-        </h3>
-
-        <p>
-          Exploration of practical AI engineering workflows,
-          machine learning applications and intelligent
-          automation systems designed around real-world
-          problems.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Artificial Intelligence</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Automation</span>
-          <span class="tag">Python</span>
-        </div>
-
-      </article>
-
-
-      <article class="project-card reveal">
-
-        <div class="project-top">
-          <span class="project-number">
-            02 / LLM
-          </span>
-        </div>
-
-        <h3>
-          LLM & RAG Application Development
-        </h3>
-
-        <p>
-          Practical exploration of large language model
-          applications, retrieval-augmented generation,
-          knowledge-based systems and AI application
-          orchestration.
-        </p>
-
-        <div class="tags">
-          <span class="tag">LLM</span>
-          <span class="tag">RAG</span>
-          <span class="tag">AI Applications</span>
-          <span class="tag">Python</span>
-        </div>
-
-      </article>
-
-
-      <article class="project-card reveal">
-
-        <div class="project-top">
-          <span class="project-number">
-            03 / SECURITY
-          </span>
-        </div>
-
-        <h3>
-          Cybersecurity & Security Architecture
-        </h3>
-
-        <p>
-          Security-focused project work covering network
-          security concepts, threat awareness, system
-          protection and security architecture principles.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Cybersecurity</span>
-          <span class="tag">Network Security</span>
-          <span class="tag">Security Architecture</span>
-        </div>
-
-      </article>
-
-
-      <article class="project-card reveal">
-
-        <div class="project-top">
-          <span class="project-number">
-            04 / SMART SYSTEM
-          </span>
-        </div>
-
-        <h3>
-          Smart Fishing Boat Safety & Communication
-        </h3>
-
-        <p>
-          A technology concept combining satellite connectivity,
-          networking, GPS, monitoring and emergency communication
-          for marine fishing operations.
-        </p>
-
-        <div class="tags">
-          <span class="tag">IoT</span>
-          <span class="tag">GPS</span>
-          <span class="tag">Networking</span>
-          <span class="tag">Satellite Connectivity</span>
-          <span class="tag">Safety Systems</span>
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     EXPERIENCE
-========================== -->
-
-<section id="experience">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Experience
-      </div>
-
-      <h2 class="section-title">
-        Professional journey
-      </h2>
-
-    </div>
-
-
-    <div class="timeline">
-
-
-      <div class="timeline-item reveal">
-
-        <span class="timeline-dot"></span>
-
-        <div class="timeline-date">
-          AI ENGINEERING
-        </div>
-
-        <h3>
-          AI Engineer
-        </h3>
-
-        <div class="timeline-company">
-          Independent / Freelance Technology Work
-        </div>
-
-        <p>
-          Focused on AI-driven solutions, machine learning,
-          intelligent automation, data-oriented problem solving
-          and practical AI application development.
-        </p>
-
-      </div>
-
-
-      <div class="timeline-item reveal">
-
-        <span class="timeline-dot"></span>
-
-        <div class="timeline-date">
-          CYBERSECURITY
-        </div>
-
-        <h3>
-          Cybersecurity Professional
-        </h3>
-
-        <div class="timeline-company">
-          Independent Security & Technology Projects
-        </div>
-
-        <p>
-          Developing knowledge and practical capability in
-          cybersecurity, network security, security architecture,
-          threat awareness and secure technology implementation.
-        </p>
-
-      </div>
-
-
-      <div class="timeline-item reveal">
-
-        <span class="timeline-dot"></span>
-
-        <div class="timeline-date">
-          ENTREPRENEURSHIP
-        </div>
-
-        <h3>
-          Founder & CEO
-        </h3>
-
-        <div class="timeline-company">
-          Web Success Partners LLC
-        </div>
-
-        <p>
-          Leading technology and digital business initiatives
-          with a focus on digital services, business development,
-          technology integration and emerging technology solutions.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     CERTIFICATIONS
-========================== -->
-
-<section id="certifications">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Learning & Certifications
-      </div>
-
-      <h2 class="section-title">
-        Continuous technical development
-      </h2>
-
-      <p class="section-description">
-        Selected training and professional learning areas.
-      </p>
-
-    </div>
-
-
-    <div class="cert-grid">
-
-
-      <div class="cert-card reveal">
-
-        <small>
-          AI ENGINEERING
-        </small>
-
-        <h3>
-          The AI Engineer Course
-        </h3>
-
-        <p>
-          Complete AI Engineer Bootcamp — Udemy.
-        </p>
-
-      </div>
-
-
-      <div class="cert-card reveal">
-
-        <small>
-          LLM ENGINEERING
-        </small>
-
-        <h3>
-          LLM Zoomcamp
-        </h3>
-
-        <p>
-          DataTalksClub practical LLM application
-          development curriculum.
-        </p>
-
-      </div>
-
-
-      <div class="cert-card reveal">
-
-        <small>
-          CYBERSECURITY
-        </small>
-
-        <h3>
-          Introduction to Cybersecurity
-        </h3>
-
-        <p>
-          Cisco Networking Academy.
-        </p>
-
-      </div>
-
-
-      <div class="cert-card reveal">
-
-        <small>
-          CYBERSECURITY
-        </small>
-
-        <h3>
-          Google Cybersecurity Professional Certificate
-        </h3>
-
-        <p>
-          Foundational cybersecurity learning covering
-          security concepts, Linux, Python, SQL and practical labs.
-        </p>
-
-      </div>
-
-
-      <div class="cert-card reveal">
-
-        <small>
-          SECURITY+
-        </small>
-
-        <h3>
-          CompTIA Security+ (SY0-701)
-        </h3>
-
-        <p>
-          Security+ preparation and practical cybersecurity
-          training.
-        </p>
-
-      </div>
-
-
-      <div class="cert-card reveal">
-
-        <small>
-          NETWORK SECURITY
-        </small>
-
-        <h3>
-          Cisco CCNA Cybersecurity
-        </h3>
-
-        <p>
-          Networking and cybersecurity-focused learning.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     SKILLS
-========================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        Skills
-      </div>
-
-      <h2 class="section-title">
-        Technology toolkit
-      </h2>
-
-    </div>
-
-
-    <div class="skills reveal">
-
-      <span class="skill">Artificial Intelligence</span>
-      <span class="skill">Machine Learning</span>
-      <span class="skill">LLM</span>
-      <span class="skill">RAG</span>
-      <span class="skill">Python</span>
-      <span class="skill">AI Automation</span>
-      <span class="skill">Cybersecurity</span>
-      <span class="skill">Network Security</span>
-      <span class="skill">Security Architecture</span>
-      <span class="skill">Linux</span>
-      <span class="skill">SQL</span>
-      <span class="skill">Git & GitHub</span>
-      <span class="skill">Digital Technology</span>
-      <span class="skill">Business Development</span>
-      <span class="skill">Entrepreneurship</span>
-      <span class="skill">Technology Strategy</span>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     ENTREPRENEURSHIP
-========================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="entrepreneur-card reveal">
-
-      <div class="section-label">
-        Entrepreneurship
-      </div>
-
-      <h2>
-        Web Success Partners LLC
-      </h2>
-
-      <p>
-        A technology and digital business initiative focused
-        on developing practical digital services, technology
-        solutions and business opportunities. The broader
-        vision is to connect entrepreneurship with emerging
-        technologies such as artificial intelligence,
-        cybersecurity and digital infrastructure.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================== -->
-
-<section id="contact">
-
-  <div class="container">
-
-    <div class="contact-box reveal">
-
-      <div class="section-label">
-        Contact
-      </div>
-
-      <h2>
-        Let's build something meaningful.
-      </h2>
-
-      <p>
-        Interested in AI engineering, cybersecurity,
-        technology projects or digital business collaboration?
-        Feel free to connect.
-      </p>
-
-      <div class="social-links">
-
-        <!-- Replace # with your real URLs -->
-
-        <a
-          href="#"
-          class="social-link"
-          target="_blank"
-        >
-          LinkedIn
-        </a>
-
-        <a
-          href="https://github.com/mashrafirahmanCEO"
-          class="social-link"
-          target="_blank"
-        >
-          GitHub
-        </a>
-
-        <a
-          href="#"
-          class="social-link"
-          target="_blank"
-        >
-          Facebook
-        </a>
-
-        <a
-          href="mailto:YOUR-EMAIL@example.com"
-          class="social-link"
-        >
-          Email
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-```
+    </section>
 
   </main>
+
 
   <!-- =========================
        FOOTER
@@ -1731,76 +1923,41 @@
 
   <footer>
 
-```
-<div class="container footer-inner">
+    <div class="container footer-inner">
 
-  <div>
-    © <span id="year"></span> Mashrafi Rahman
-  </div>
+      <div>
+        <div class="footer-brand">
+          <span>◆</span> Mashrafi Rahman
+        </div>
 
-  <div>
-    AI Engineer · Cybersecurity · Entrepreneur
-  </div>
+        <div class="footer-copy">
+          AI Engineer · Cybersecurity Professional · Entrepreneur
+        </div>
+      </div>
 
-</div>
-```
+
+      <div class="footer-links">
+        <a href="#top">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
 
   </footer>
 
+
   <!-- =========================
-       JAVASCRIPT
+       SMALL INTERACTION
   ========================== -->
 
   <script>
+    // Subtle terminal typing effect
+    const terminalStatus = document.querySelector(".terminal .green");
 
-    // Mobile navigation
-
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-      });
-
-    });
-
-
-    // Scroll reveal animation
-
-    const observer = new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-
-    document
-      .querySelectorAll(".reveal")
-      .forEach(element => observer.observe(element));
-
-
-    // Current year
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
+    // Prevent any dependency on external libraries.
+    // The page is intentionally self-contained.
+    document.documentElement.classList.add("portfolio-ready");
   </script>
 
 </body>
